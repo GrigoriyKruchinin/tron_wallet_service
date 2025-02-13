@@ -1,13 +1,17 @@
 from tronpy import Tron
+from tronpy.providers import HTTPProvider
 from app.core.config import settings
 from app.db.repositories.wallet import WalletRepository
-from app.api.v1.schemas.wallet import WalletQueryCreate, WalletQueryResponse
+from app.api.v1.schemas.wallet import WalletQueryCreate
 
 
 class WalletService:
     def __init__(self, wallet_repository: WalletRepository):
         self.wallet_repository = wallet_repository
-        self.tron_client = Tron(network=settings.tron_network)
+        self.tron_client = Tron(
+            provider=HTTPProvider(api_key=settings.api_tron_key),
+            network=settings.tron_network,
+        )
 
     def get_wallet_info(self, wallet_query: WalletQueryCreate):
         try:

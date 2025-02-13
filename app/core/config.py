@@ -9,6 +9,7 @@ class Settings(BaseSettings):
     postgres_password: str
     postgres_db: str
 
+    api_tron_key: str
     tron_network: str = "mainnet"
 
     model_config = SettingsConfigDict(env_file=".env")
