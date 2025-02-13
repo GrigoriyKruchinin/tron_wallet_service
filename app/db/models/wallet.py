@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy import Column, DateTime, Integer, String
 from app.db.base import Base
 
@@ -22,4 +22,4 @@ class WalletQuery(Base):
     balance = Column(Integer)
     bandwidth = Column(Integer)
     energy = Column(Integer)
-    timestamp = Column(DateTime, default=datetime.now(datetime.timezone.utc))
+    timestamp = Column(DateTime, default=datetime.now(timezone.utc))
