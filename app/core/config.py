@@ -13,6 +13,11 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(env_file=".env")
 
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        if "TEST_ENV" in kwargs and kwargs["TEST_ENV"] == "True":
+            self.DATABASE_URL = "postgresql://test_user:test_password@localhost/test_db"
+
 
 @lru_cache
 def get_settings():

@@ -1,4 +1,4 @@
-.PHONY: up down pip_freeze migrations migrate logs restart
+.PHONY: up down migrations migrate test
 
 up:
 	docker-compose up -d --build --remove-orphans --force-recreate
@@ -12,3 +12,5 @@ migrations:
 migrate:
 	docker-compose exec backend alembic upgrade head
 
+test:
+	docker-compose -f docker-compose.test.yml up --build
