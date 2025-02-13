@@ -23,11 +23,9 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 # Import models to make sure Alembic sees them and can auto-generate migrations
-# ||||||||||||||||||||||||||||||||||||||||
-# ||||||||||||||||||||||||||||||||||||||||
-# ||||||||||||||||||||||||||||||||||||||||
+from app.db.models.wallet import WalletQuery
 
-from app.db.models import Base
+from app.db.base import Base
 
 # add your model's MetaData object here
 # for 'autogenerate' support
