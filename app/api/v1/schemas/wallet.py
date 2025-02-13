@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 
 
@@ -17,5 +17,5 @@ class WalletQueryResponse(WalletQueryBase):
     energy: int
     timestamp: datetime
 
-    class Config:
+    class Config(ConfigDict):
         from_attributes = True
