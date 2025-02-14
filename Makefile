@@ -13,4 +13,4 @@ migrate:
 	docker-compose exec backend alembic upgrade head
 
 test:
-	docker-compose -f docker-compose.test.yml up --build
+	docker-compose -f docker-compose.test.yml up --build | grep -v 'test_db'
