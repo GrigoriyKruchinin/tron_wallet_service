@@ -3,14 +3,11 @@ from app.db.repositories.wallet import WalletRepository
 from app.db.models.wallet import WalletQuery
 from app.api.v1.schemas.wallet import WalletQueryCreate
 from sqlalchemy.orm import Session
-
-
-@pytest.fixture(scope="function")
-def wallet_repository(db_session: Session) -> WalletRepository:
-    return WalletRepository(db=db_session)
+from tests.fixtures.wallet_fixtures import wallet_repository
 
 
 def test_create_wallet_query(wallet_repository: WalletRepository, db_session: Session):
+    """Test the create_wallet_query method."""
     wallet_query_data = WalletQueryCreate(address="TXYZ9z92s6rc6dbNGgL9LC8RxnWLkWWhRYH")
     balance = 1000
     bandwidth = 500

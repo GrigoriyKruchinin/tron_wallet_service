@@ -9,4 +9,4 @@ COPY . ./
 
 ENV TEST_ENV=True
 
-CMD ["sh", "-c", "pytest  && exit 0"]
+CMD ["/bin/bash", "run_test.sh"]
