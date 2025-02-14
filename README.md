@@ -52,7 +52,7 @@ make test
 
 ### 6. Эндпоинты API
 
-**POST /wallet-info**
+**POST api/v1/wallet**
 Этот эндпоинт принимает адрес кошелька в сети Tron и возвращает информацию о его балансе TRX, bandwidth и energy. Также запрос будет записан в базу данных.
 
 Тело запроса:
@@ -71,11 +71,11 @@ make test
 }
 ```
 
-**GET /wallet-info**
+**GET api/v1/wallets**
 Этот эндпоинт позволяет получить список последних запросов к API с пагинацией.
 
 Запрос:
-`GET /wallet-info?page=1&limit=10`
+`GET api/v1/wallets?skip=1&limit=10`
 
 Ответ:
 
